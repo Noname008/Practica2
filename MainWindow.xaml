@@ -1,0 +1,41 @@
+﻿<Window x:Class="Practica2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctrl="clr-namespace:Practica2"
+        xmlns:local="clr-namespace:Practica2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid x:Name="Load" Width="100" Height="200" Visibility="Hidden" Panel.ZIndex="1">
+            <local:AnimatedLoad/>
+        </Grid>
+        <Grid x:Name="Content" Panel.ZIndex="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="B1" Grid.Row="0" Content="Параллельный алгоритм №1: декомпозиция по данным" Margin="10 5"/>
+                <Button x:Name="B2" Grid.Row="1" Content="Параллельный алгоритм №2: декомпозиция набора простых чисел" Margin="10 5"/>
+                <Button x:Name="B3" Grid.Row="2" Content="Параллельный алгоритм №3: применение пула потоков" Margin="10 5"/>
+                <Button x:Name="B4" Grid.Row="3" Content="Параллельный алгоритм №4: последовательный перебор простых чисел" Margin="10 5"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Margin="10 5"/>
+                <TextBox Grid.Row="1" Margin="10 5"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
