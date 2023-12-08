@@ -23,10 +23,10 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="B1" Grid.Row="0" Content="Параллельный алгоритм №1: декомпозиция по данным" Margin="10 5"/>
-                <Button x:Name="B2" Grid.Row="1" Content="Параллельный алгоритм №2: декомпозиция набора простых чисел" Margin="10 5"/>
-                <Button x:Name="B3" Grid.Row="2" Content="Параллельный алгоритм №3: применение пула потоков" Margin="10 5"/>
-                <Button x:Name="B4" Grid.Row="3" Content="Параллельный алгоритм №4: последовательный перебор простых чисел" Margin="10 5"/>
+                <Button x:Name="B1" Grid.Row="0" Content="Параллельный алгоритм №1: &#x0a;Декомпозиция по данным" Margin="10 5"/>
+                <Button x:Name="B2" Grid.Row="1" Content="Параллельный алгоритм №2: &#x0a;Декомпозиция набора простых чисел" Margin="10 5"/>
+                <Button x:Name="B3" Grid.Row="2" Content="Параллельный алгоритм №3: &#x0a;Применение пула потоков" Margin="10 5"/>
+                <Button x:Name="B4" Grid.Row="3" Content="Параллельный алгоритм №4: &#x0a;Последовательный перебор простых чисел" Margin="10 5"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>

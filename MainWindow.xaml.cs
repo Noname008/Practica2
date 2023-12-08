@@ -60,7 +60,7 @@ namespace Practica2
         {
             foreach(var item in numbers)
             {
-                if (primes.FirstOrDefault((x) => item.Value % x == 0, 0) != 0)
+                if (item.Check && primes.FirstOrDefault((x) => item.Value % x == 0, 0) != 0)
                     item.Check = false;
             }
         }
@@ -99,7 +99,8 @@ namespace Practica2
                 i = (int)(Math.Pow(listprimes.Last(), 2) < maxValue ? Math.Pow(listprimes.Last(), 2) : maxValue);
                 buffer = new List<Number>(Number.GetNumbers(listprimes.Last(), i));
                 var list = Split(buffer, threads);
-                Parallel.For(0, threads, (x) => BasicSequentialAlg(
+                int validThreads = list.ToArray().Length > threads ? threads : list.ToArray().Length;
+                Parallel.For(0, validThreads, (x) => BasicSequentialAlg(
                     list.ToArray()[x], 
                     [.. listprimes]));
                 AddPrimes();
@@ -112,17 +113,13 @@ namespace Practica2
             int i;
             do
             {
-                if (listprimes.Count > threads)
-                    validThreads = threads;
-                else
-                    validThreads = listprimes.Count;
-
+                validThreads = listprimes.Count > threads ? threads : listprimes.Count;
                 i = (int)(Math.Pow(listprimes.Last(), 2) < maxValue ? Math.Pow(listprimes.Last(), 2) : maxValue);
                 buffer = new List<Number>(Number.GetNumbers(listprimes.Last(), i));
                 var list = Split(listprimes.ToArray(), validThreads);
                 Parallel.For(0, validThreads, x => BasicSequentialAlg(
                     buffer,
-                    [.. list.ToArray()[x]]));
+                    list.ToArray()[x].ToArray()));
                 AddPrimes();
             } while (i < maxValue);
         }
